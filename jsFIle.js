@@ -1,8 +1,13 @@
 $(document).ready(function() {
     var numeroTela = "";
     var resultadoExpressao = [];
+    var controle = false;
 
     $("table td.number").click(function() {
+        if (controle == true) {
+            numeroTela = "";
+            controle = false;
+        }
         numeroTela += $(this).html();
         $("#result").html(numeroTela);
     });
@@ -38,24 +43,29 @@ $(document).ready(function() {
 
     $('#resultadoOperacao').click(function() {
         if (numeroTela == "") {
-            resultadoExpressao.push(0);
+            if (resultadoExpressao[resultadoExpressao.length - 1] == "/" || resultadoExpressao[resultadoExpressao.length - 1] == "*")
+                resultadoExpressao.push(1);
+            else resultadoExpressao.push(0);
+
         } else resultadoExpressao.push(parseFloat(numeroTela));
-        // console.log(resultadoExpressao);
-        
+        console.log(resultadoExpressao);
+
         //Transformar o array em String e retirar as virgulas.
         numeroTela = eval(resultadoExpressao.toString().replace(/,/g, ""));
         resultadoExpressao = [];
         $("#result").html(numeroTela);
+        controle = true;
 
     });
 
     function colocandoExpressao(operacao) {
         if (numeroTela == "") {
-            resultadoExpressao.push(0);
+            if (operacao == "/" || operacao == "*")
+                resultadoExpressao.push(1);
+            else resultadoExpressao.push(0);
         } else resultadoExpressao.push(parseFloat(numeroTela));
         resultadoExpressao.push(operacao);
         numeroTela = "";
     }
-
 
 });
