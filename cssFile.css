@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Jun 23, 2016, 1:36:57 PM
+    Author     : Mateus Macedo
+*/
+
+.col-4{
+    width: 20px;
+}
+
+.calc {
+  background-color: #dfdfdf;
+}
+
+.calc td{
+    text-align: center;
+    width: 20%;
+    font-size: 18px;
+}
+
+.calc td:hover{
+    background: #f1f1f1;
+}
+
+.calc .calc-area{
+    text-align: right;
+    padding-right: 30px;
+
+}
+
+#header {
+  background: #110000;
+  color: white;
+}
+
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+body {
+   background-color: #f0f8e8;
+}
